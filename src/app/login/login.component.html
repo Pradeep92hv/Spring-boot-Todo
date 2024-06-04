@@ -1,0 +1,11 @@
+<!-- User  Name: <input type="text" name="username" value="{{username}}"> -->
+<!-- 1 way data bindling, we takking value from compoent.ts showing on view ,-> interplotation -->
+
+User  Name: <input type="text" name="username"  [(ngModel)]="username">
+<!--  2 way data binding, get useranme from componet , when user changed the name it is upadted ->  ngModel -->
+password :<input type="password" name="paasword" id="" value="{{password}}">
+
+<button (click)=handleLogin()> login</button>
+<!-- event handling -->
+
+<script></script>
