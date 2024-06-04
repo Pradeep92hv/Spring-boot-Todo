@@ -6,7 +6,7 @@
 <div class="alert alert-warning" *ngIf = 'inValidLoginin'>{{errorMessage}}</div>
 
 <div>
-  User  Name: <input type="text" name="username" value="{{username}}"> 
+  <!-- User  Name: <input type="text" name="username" value="{{username}}">  -->
   <!-- 1 way data bindling, we takking value from compoent.ts showing on view ,-> interplotation -->
   
   User  Name: <input type="text" name="username"  [(ngModel)]="username">
