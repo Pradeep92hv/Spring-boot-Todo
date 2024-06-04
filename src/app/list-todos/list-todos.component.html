@@ -4,6 +4,8 @@
     <tr>
       <th>Id</th>
       <th>Description</th>
+      <th>is completed</th>
+      <th>targetDate</th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +13,8 @@
     <tr *ngFor="let todo of todos">
       <th>{{todo.id}}</th>
       <th>{{todo.description}}</th>
+      <th>{{todo.done}}</th>
+      <th>{{todo.targetDate | date | uppercase}}</th>
     </tr>
   </tbody>
 </table>
