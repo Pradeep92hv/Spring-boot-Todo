@@ -26,7 +26,7 @@ getWelcomeMessagevalue: string
     // this.message=5     compilation error, becuase  message is string
 
     console.log(this.route.snapshot.params['name'])
-    this.name=this.route.snapshot.params['name']
+    this.name=this.route.snapshot.params['name']   //geting the path varible
   }
 
 
@@ -55,5 +55,18 @@ getWelcomeMessagevalue: string
     //console.log(error.message)
     this.getWelcomeMessagevalue=error.message
   }
+
+  
+  getWelcomeMessageWithParameter(){
+    
+    console.log(this.service.executeHelloWorldBeanserviceWithParameter(this.name))
+    this.service.executeHelloWorldBeanserviceWithParameter(this.name).subscribe(
+        response => this.handleSuccessfullResponse(response),
+       error => this.handleErrorResponse(error)
+          );
+   
+
+  }
+
 
 }
