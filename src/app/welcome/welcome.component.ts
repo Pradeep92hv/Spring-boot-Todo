@@ -32,6 +32,8 @@ message  = 'welcome message'
   getWelcomeMessage(){
     
     console.log(this.service.executeHelloWorldBeanservice())
+    this.service.executeHelloWorldBeanservice().subscribe();
+   
 
   }
 }

@@ -13,7 +13,7 @@ export class WelcomeDataService {
 
   executeHelloWorldBeanservice(){
     console.log("shs")
-    return this.http.get('http://localhost:8080/hello-world')
+    return this.http.get('http://localhost:8080/hello-world-bean')
     
   }
 }
