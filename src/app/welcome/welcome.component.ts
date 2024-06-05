@@ -34,8 +34,9 @@ getWelcomeMessagevalue: string
     
     console.log(this.service.executeHelloWorldBeanservice())
     this.service.executeHelloWorldBeanservice().subscribe(
-        response => this.handleSuccessfullResponse(response)
-    );
+        response => this.handleSuccessfullResponse(response),
+       error => this.handleErrorResponse(error)
+          );
    
 
   }
@@ -46,6 +47,13 @@ getWelcomeMessagevalue: string
     this.getWelcomeMessagevalue=response.msg
 
     // console.log(this.getWelcomeMessagevalue)
+
+  }
+
+  handleErrorResponse(error)
+  {
+    //console.log(error.message)
+    this.getWelcomeMessagevalue=error.message
   }
 
 }
