@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'login', component :LoginComponent},
   {path:"welcome/:name", component: WelcomeComponent , canActivate:[RouteGuardService]},
   {path: 'todos',component:ListTodosComponent, canActivate:[RouteGuardService]},
-  {path: 'logout' ,component: LogoutComponent},  
+  {path: 'logout' ,component: LogoutComponent, canActivate:[RouteGuardService] },  
   {path: "**", component: ErrorComponent}   // it should be last
 ];
 
