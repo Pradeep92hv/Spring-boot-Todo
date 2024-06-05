@@ -30,7 +30,8 @@ message  = 'welcome message'
 
 
   getWelcomeMessage(){
-    this.service.executeHelloWorldBeanservice();
     
+    console.log(this.service.executeHelloWorldBeanservice())
+
   }
 }
