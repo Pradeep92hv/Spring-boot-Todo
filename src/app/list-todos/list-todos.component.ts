@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
+import { interval } from 'rxjs';
 
-export class Todo{
+export class Todo {
   constructor(
-    public id:number,
-    public description : string,
-    public done :boolean,
-    public targetDate : Date
-  )
-  {
-
-  }
+    public id: number,
+    public description: string,
+    public done: boolean,
+    public targetDate: Date
+  ) { }
 }
 
 @Component({
@@ -19,30 +17,41 @@ export class Todo{
   styleUrls: ['./list-todos.component.css']
 })
 
-
 export class ListTodosComponent implements OnInit {
-  // todos=[
-  //   new Todo(1,"Learn to dance",false,new Date()),
-  //   new Todo(2,"Learn to song",false,new Date()),
-  //   new Todo(2,"Learn to eat",false,new Date())
 
-  //  ]
+  message: string;
+  todos: Todo[];
 
-  todos:Todo[]
-  constructor(
-    private todosService: TodoDataService
-  ) { }
+  constructor(private todosService: TodoDataService) { }
 
   ngOnInit() {
+    this.refreshTodos(); // Initially load todos
+    // Polling every 5 seconds (you can adjust the time interval as needed)
+    interval(5000).subscribe(() => {
+      this.refreshTodos();
+    });
+  }
+
+  refreshTodos() {
     this.todosService.retrieveAllTodos("pradeephv").subscribe(
       response => {
-        console.log(response)
-        this.todos=response
+        console.log("Data refreshed");
+        this.todos = response;
       },
       error => {
         console.error('Error fetching todos', error);
       }
-    )
+    );
   }
 
+  deleteTodo(id) {
+    this.todosService.deleteTodo("pradeephv", id).subscribe(
+      response => {
+        console.log(response);
+        this.message = `Delete of Todo ${id} Successful!`;
+        // Refresh todos after deletion
+        this.refreshTodos();
+      }
+    );
+  }
 }
