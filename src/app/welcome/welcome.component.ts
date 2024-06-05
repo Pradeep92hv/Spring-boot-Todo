@@ -15,6 +15,7 @@ export class WelcomeComponent implements OnInit {
 
 
 message  = 'welcome message'
+getWelcomeMessagevalue: string
   constructor(
     private route:ActivatedRoute,
     private service:WelcomeDataService
@@ -32,8 +33,19 @@ message  = 'welcome message'
   getWelcomeMessage(){
     
     console.log(this.service.executeHelloWorldBeanservice())
-    this.service.executeHelloWorldBeanservice().subscribe();
+    this.service.executeHelloWorldBeanservice().subscribe(
+        response => this.handleSuccessfullResponse(response)
+    );
    
 
   }
+
+  handleSuccessfullResponse(response)
+  {
+
+    this.getWelcomeMessagevalue=response.msg
+
+    // console.log(this.getWelcomeMessagevalue)
+  }
+
 }

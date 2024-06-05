@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+export class HelloWorldBean{
+  constructor(public message:String){}
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +15,8 @@ export class WelcomeDataService {
   ) { }
 
   executeHelloWorldBeanservice(){
-    console.log("shs")
-    return this.http.get('http://localhost:8080/hello-world-bean')
+    
+    return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean')
     
   }
 }
