@@ -1,6 +1,7 @@
 <h1>Todo</h1>
 
 <div class="container">
+  <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
 
   <fieldset class="form-group">
     <label for="">Description</label>
@@ -14,5 +15,7 @@
    </fieldset>
 
 
-   <button class="btn btn-success" (click)="saveTodo()">Save</button>
+   <button type="submit" class="btn btn-success"  >Save</button>
+
+  </form>
 </div>
