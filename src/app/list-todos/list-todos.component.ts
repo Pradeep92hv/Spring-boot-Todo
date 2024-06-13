@@ -63,5 +63,6 @@ export class ListTodosComponent implements OnInit {
   {
     console.log(id)
     this.router.navigate(['todos',id])
+    
   }
 }
